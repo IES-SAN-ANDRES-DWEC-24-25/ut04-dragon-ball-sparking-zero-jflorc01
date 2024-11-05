@@ -9,7 +9,7 @@ class Torneo {
    * @param {Luchador[]} luchadores - Array de luchadores participantes.
    */
   constructor(luchadores) {
-    
+    this.luchadores = luchadores;
   }
 
   /**
@@ -20,13 +20,13 @@ class Torneo {
     let participantes ; // Copiar el array de luchadores
     mezclarArray(participantes);
     console.log(`\nIniciando el torneo con ${participantes.length} luchadores!\n`);
-
+    let contRonda = 0;
     // Simular rondas hasta que quede un solo luchador
     
 
-    const campeón = participantes[0];
-    console.log(`El campeón del torneo es ${campeón.nombre}!\n`);
-    return campeón;
+    const campeon = participantes[0];
+    console.log(`El campeón del torneo es ${campeon.nombre}!\n`);
+    return campeon;
   }
 }
 

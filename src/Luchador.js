@@ -11,6 +11,30 @@ class Luchador {
     this.salud = salud;
   }
 
+  setSalud(salud){
+    if(this.salud < 0){
+
+      this.salud = 0;
+
+    }
+  }
+  
+  /**
+   * Calcula si el ataque será esquivado o no
+   * @returns {Boolean} - 'true' si esquiva el ataque y 'false' si no.
+   */
+  ataqueEsquivado(){
+    
+    let rand = Math.random();
+    if(rand < 0.2){
+      
+      return true;
+
+    }
+    
+    return false;
+
+  }
   /**
    * Realiza un ataque contra un oponente.
    * @param {Luchador} oponente - El luchador que recibe el ataque.
@@ -20,12 +44,13 @@ class Luchador {
     // Decidir si el ataque es esquivado
     // En este caso, la probabilidad de esquivar el ataque es del 20%
     
-    // !: Qué devuelve el método?
+    // ? Qué devuelve el método?
+    // TODO Hacer que devuelva un objeto con el daño hecho y el mensaje
 
     let danio;
     
-    let rand = Math.random();
-    if(rand < 0.2){
+    
+    if(this.ataqueEsquivado()){
       
       console.log(`${oponente.nombre} ha esquivado el ataque!`);
       danio = 0;
@@ -58,7 +83,7 @@ class Luchador {
    */
   recibirDanio(danio) {
     
-    this.salud -= danio;
+    this.setSalud(this.salud - danio);
     console.log(`${this.nombre} ha recibido ${danio} puntos de daño`);
     console.log(`Salud restante de ${this.nombre}: ${this.salud}`);
     
