@@ -3,36 +3,31 @@
 class Luchador {
   // Implementa el constructor y los métodos necesarios
 
-  constructor(nombre, velocidad, ataque, defensa, salud) {
+  constructor(nombre, velocidad, ataque, defensa) {
     this.nombre = nombre;
     this.velocidad = velocidad;
     this.ataque = ataque;
     this.defensa = defensa;
-    this.salud = salud;
+    this.salud = 100;
   }
 
   setSalud(salud){
-    if(this.salud < 0){
 
+    if(salud < 0){
       this.salud = 0;
-
+    }else{
+      this.salud = salud;
     }
+
   }
-  
+
   /**
    * Calcula si el ataque será esquivado o no
    * @returns {Boolean} - 'true' si esquiva el ataque y 'false' si no.
    */
   ataqueEsquivado(){
-    
-    let rand = Math.random();
-    if(rand < 0.2){
-      
-      return true;
 
-    }
-    
-    return false;
+    return Math.random() < 0.2;
 
   }
   /**
@@ -48,12 +43,16 @@ class Luchador {
     // TODO Hacer que devuelva un objeto con el daño hecho y el mensaje
 
     let danio;
-    
-    
+
     if(this.ataqueEsquivado()){
       
       console.log(`${oponente.nombre} ha esquivado el ataque!`);
       danio = 0;
+      return{
+        danio: danio,
+        mensaje: `${oponente.nombre} esquivó el ataque de ${this.nombre}!`,
+        oponente: oponente
+      };
 
     }
 
@@ -62,7 +61,7 @@ class Luchador {
 
     if(oponente.defensa > this.ataque){
     
-      danio = 0.2 * this.ataque;
+      danio = 0.1 * this.ataque;
     
     }else{
       
@@ -73,6 +72,12 @@ class Luchador {
     // Aplicar daño al oponente
 
     oponente.recibirDanio(danio);
+
+    return{
+      danio: danio,
+      mensaje: `${this.nombre} ataca a ${oponente.nombre} y causa ${danio.toFixed(2)} de daño.`,
+      oponente: oponente
+    };
 
     // Retornar resultado del ataque
   }
@@ -94,7 +99,7 @@ class Luchador {
    * @returns {boolean} - `true` si la salud es mayor a 0, `false` en caso contrario.
    */
   estaVivo() {
-    return this.salud > 0;
+    return (this.salud > 0);
   }
 }
 

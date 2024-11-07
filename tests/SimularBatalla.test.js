@@ -29,15 +29,21 @@ describe('Función simularBatalla', () => {
 
     simularBatalla(luchador1, luchador2);
 
-    // Primer ataque: 70 - 45 = 25 daño
-    expect(luchador2.salud).toBe(75);
+    // Ataque de luchador2 a luchador1: 65 - 50 = 15 daño
+    /* No se pueden comprobar las saludes después de cada ataque, así que teniendo
+       en cuenta que el daño que recibe el luchador 1 es 15. Al final de la pelea
+       tiene que terminar con 55 de vida.*/
+    expect(luchador2.salud).toBe(0);
+    expect(luchador1.salud).toBe(55);
 
-    // Segundo ataque: 65 - 50 = 15 daño
-    expect(luchador1.salud).toBe(85);
+    // Primer ataque: 70 - 45 = 25 daño
+    // expect(luchador2.salud).toBe(75);
+    //
+    //
+    // expect(luchador1.salud).toBe(85);
 
     // Continuar hasta que uno pierda
     // Puedes continuar mockeando Math.random y verificar el resultado final
-
     // Restaurar Math.random
     Math.random.mockRestore();
   });

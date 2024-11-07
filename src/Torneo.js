@@ -28,6 +28,24 @@ class Torneo {
     console.log(`El campeón del torneo es ${campeon.nombre}!\n`);
     return campeon;
   }
+
+  /**
+   * Reinicia las habilidades de los luchadores
+   * @param {Luchador[]} participantes - Array de luchadores participantes
+   */
+  resetearHabilidades(participantes) {
+    participantes.forEach(luchador => {
+      if (luchador instanceof Saiyan && luchador.esSuperSaiyan) {
+        luchador.revertirTransformacion();
+      }
+      if (luchador instanceof Earthling && luchador.tecnicaUsada) {
+        luchador.tecnicaUsada = false;
+      }
+      if (luchador instanceof Namekian && luchador.regenerado) {
+        luchador.regenerado = false;
+      }
+    });
+  }
 }
 
 module.exports = Torneo;

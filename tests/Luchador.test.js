@@ -26,7 +26,7 @@ describe('Clase Luchador', () => {
     const resultado = luchador.atacar(oponente);
 
     // Daño esperado: 60 - 35 = 25
-    expect(resultado.daño).toBe(25);
+    expect(resultado.danio).toBe(25);
     expect(oponente.salud).toBe(75);
     expect(resultado.mensaje).toBe('Testeador ataca a Oponente y causa 25.00 de daño.');
 
@@ -40,7 +40,7 @@ describe('Clase Luchador', () => {
 
     const resultado = luchador.atacar(oponente);
 
-    expect(resultado.daño).toBe(0);
+    expect(resultado.danio).toBe(0);
     expect(oponente.salud).toBe(100);
     expect(resultado.mensaje).toBe('Oponente esquivó el ataque de Testeador!');
 
@@ -57,7 +57,7 @@ describe('Clase Luchador', () => {
     const resultado = luchador.atacar(oponente);
 
     // Daño esperado: 60 * 0.1 = 6
-    expect(resultado.daño).toBe(6);
+    expect(resultado.danio).toBe(6);
     expect(oponente.salud).toBe(94);
     expect(resultado.mensaje).toBe('Testeador ataca a Oponente y causa 6.00 de daño.');
 
@@ -74,6 +74,7 @@ describe('Clase Luchador', () => {
   });
 
   test('Método estaVivo retorna true cuando salud > 0', () => {
+    luchador.salud = 100;
     expect(luchador.estaVivo()).toBe(true);
   });
 
