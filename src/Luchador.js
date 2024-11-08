@@ -38,9 +38,6 @@ class Luchador {
   atacar(oponente) {
     // Decidir si el ataque es esquivado
     // En este caso, la probabilidad de esquivar el ataque es del 20%
-    
-    // ? Qué devuelve el método?
-    // TODO Hacer que devuelva un objeto con el daño hecho y el mensaje
 
     let danio;
 

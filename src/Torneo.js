@@ -90,9 +90,7 @@ class Torneo {
 
     while (participantes.length > 1) {
       console.log(`*********************************************`);
-      // console.log(`*                                           *`);
       console.log(`*                  Ronda ${contRonda}                  *`);
-      // console.log(`*                                           *`);
       console.log(`*********************************************`);
       this.resetearHabilidades(participantes); // Reiniciar habilidades para cada ronda
       participantes = this.simularRonda(participantes); // Llamar con this.simularRonda
