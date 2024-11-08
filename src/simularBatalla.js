@@ -11,9 +11,9 @@ const Earthling = require('./Earthling');
  * @returns {Luchador} - Ganador de la batalla.
  */
 function simularBatalla(luchador1, luchador2) {
-  console.log(
-    `\nComienza la batalla entre ${luchador1.nombre} y ${luchador2.nombre}!`
-  );
+  console.log("\n=================================================");
+  console.log(`Comienza la batalla entre ${luchador1.nombre} y ${luchador2.nombre}!`);
+  console.log("=================================================\n");
 
   // Determinar quién ataca primero basado en la velocidad
   // Si la velocidad es igual, elegir al azar
@@ -32,15 +32,18 @@ function simularBatalla(luchador1, luchador2) {
       defensor = luchador1;
     }
 
-    console.log(
-      `Ambos luchadores tienen la misma velocidad.\nEn esta ronda ${atacante.nombre} será el más veloz`
-    );
+    console.log(`Ambos luchadores tienen la misma velocidad.\nEn esta ronda ${atacante.nombre} será el más veloz`);
   } else if (luchador1.velocidad > luchador2.velocidad) {
     atacante = luchador1;
     defensor = luchador2;
+
+    console.log(`El luchador más veloz es ${atacante.nombre}. Atacará el primero.`);
+
   } else {
     atacante = luchador2;
     defensor = luchador1;
+
+    console.log(`El luchador más veloz es ${atacante.nombre}. Atacará el primero.`);
   }
 
   // Simular turnos hasta que uno de los luchadores pierda
@@ -69,10 +72,12 @@ function simularBatalla(luchador1, luchador2) {
       atacante.regenerarSalud();
     }
 
-    console.log(`${atacante.nombre} tiene mayor velocidad y ataca primero.\n`);
+    console.log(`\n..................................................`);
+    console.log(`\nEs el turno de ${atacante.nombre}.\n`);
     atacante.atacar(defensor);
 
     if (defensor.estaVivo()) {
+      console.log(`\n..................................................`);
       console.log(`\nEs el turno de ${defensor.nombre}.\n`);
 
       // Aplicar habilidades especiales al defensor
@@ -108,7 +113,7 @@ function simularBatalla(luchador1, luchador2) {
     ganador = defensor;
   }
 
-  console.log(`\n\n¡El ganador de la batalla es ${ganador.nombre}!\n`);
+  console.log(`\n\n¡El ganador de la batalla es ${ganador.nombre}!`);
   return ganador;
 }
 

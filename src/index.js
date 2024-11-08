@@ -14,7 +14,9 @@ const luchadores = [
     new Saiyan("Vegeta", 92, 120, 85),
     new Namekian("Dende", 70, 60, 100),
     new Earthling("Yamcha", 77, 80, 65),
-    new Saiyan("Gohan", 80, 90, 75)
+    new Saiyan("Gohan", 80, 90, 75),
+    // new Saiyan("Test", 81, 90, 75)
+
 ];
 
 // Crear y iniciar el torneo

@@ -19,8 +19,8 @@ class Namekian extends Luchador{
     this.setSalud(this.salud + 30);
     this.regenerado = true;
 
-    console.log(`¡${this.nombre} regeneró su salud!`);
-    console.log(`\t-Salud: ${this.salud.toFixed(0)}`);
+    console.log(`\n¡${this.nombre} regeneró su salud!`);
+    console.log(`\t-Salud: ${this.salud.toFixed(0)}\n`);
 
    }
   }
