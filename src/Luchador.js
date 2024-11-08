@@ -75,7 +75,7 @@ class Luchador {
 
     return{
       danio: danio,
-      mensaje: `${this.nombre} ataca a ${oponente.nombre} y causa ${danio.toFixed(2)} de daño.`,
+      mensaje: `${this.nombre} ataca a ${oponente.nombre} y causa ${danio.toFixed(0)} de daño.`,
       oponente: oponente
     };
 
@@ -89,8 +89,8 @@ class Luchador {
   recibirDanio(danio) {
     
     this.setSalud(this.salud - danio);
-    console.log(`${this.nombre} ha recibido ${danio} puntos de daño`);
-    console.log(`Salud restante de ${this.nombre}: ${this.salud}`);
+    console.log(`${this.nombre} ha recibido ${danio.toFixed(0)} puntos de daño`);
+    console.log(`Salud restante de ${this.nombre}: ${this.salud.toFixed(0)}`);
     
   }
 

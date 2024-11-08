@@ -1,5 +1,9 @@
 // src/simularBatalla.js
 
+const Saiyan = require('./Saiyan');
+const Namekian = require('./Namekian');
+const Earthling = require('./Earthling');
+
 /**
  * Simula una batalla entre dos luchadores.
  * @param {Luchador} luchador1 - Primer luchador.
@@ -47,6 +51,7 @@ function simularBatalla(luchador1, luchador2) {
     if (atacante instanceof Saiyan) {
       if(!atacante.esSuperSaiyan && !atacante.haSidoSuperSaiyan){
           atacante.transformar();
+      // De esta forma solo dura un turno la transformación
       }else if(atacante.esSuperSaiyan){
           atacante.revertirTransformacion();
       }
@@ -64,16 +69,17 @@ function simularBatalla(luchador1, luchador2) {
       atacante.regenerarSalud();
     }
 
-    console.log(`${atacante.nombre} tiene mayor velocidad y ataca primero.`);
+    console.log(`${atacante.nombre} tiene mayor velocidad y ataca primero.\n`);
     atacante.atacar(defensor);
 
     if (defensor.estaVivo()) {
-      console.log(`Es el turno de ${defensor.nombre}.`);
+      console.log(`\nEs el turno de ${defensor.nombre}.\n`);
 
       // Aplicar habilidades especiales al defensor
         if (defensor instanceof Saiyan) {
             if(!defensor.esSuperSaiyan && !defensor.haSidoSuperSaiyan){
                 defensor.transformar();
+            // De esta forma solo dura un turno la transformación
             }else if(defensor.esSuperSaiyan){
                 defensor.revertirTransformacion();
             }
@@ -92,7 +98,7 @@ function simularBatalla(luchador1, luchador2) {
       }
       defensor.atacar(atacante);
     } else {
-      console.log(`${defensor.nombre} se ha debilitado.`);
+      console.log(`\n${defensor.nombre} se ha debilitado.`);
     }
   }
 
@@ -102,7 +108,7 @@ function simularBatalla(luchador1, luchador2) {
     ganador = defensor;
   }
 
-  console.log(`\n\nEl ganador de la batalla es ${ganador.nombre}!\n\n`);
+  console.log(`\n\n¡El ganador de la batalla es ${ganador.nombre}!\n`);
   return ganador;
 }
 

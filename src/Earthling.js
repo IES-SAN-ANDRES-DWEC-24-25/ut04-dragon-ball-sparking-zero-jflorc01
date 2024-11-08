@@ -19,7 +19,7 @@ class Earthling extends Luchador{
       this.tecnicaUsada = true;
 
       console.log(`¡${this.nombre} usa su técnica para aumentar su ataque!`);
-      console.log(`\t-Ataque: ${this.ataque}`);
+      console.log(`\t-Ataque: ${this.ataque.toFixed(0)}`);
 
     }
   }

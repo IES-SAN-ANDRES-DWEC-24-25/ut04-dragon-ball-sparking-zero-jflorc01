@@ -4,9 +4,9 @@ const Luchador = require("./Luchador");
 
 
 class Saiyan extends Luchador{
-  constructor(nombre, velocidad, ataque, defensa, salud){
+  constructor(nombre, velocidad, ataque, defensa){
     
-    super(nombre, velocidad, ataque, defensa, salud);
+    super(nombre, velocidad, ataque, defensa);
     this.esSuperSaiyan = false;
     this.haSidoSuperSaiyan = false;
     
@@ -24,8 +24,8 @@ class Saiyan extends Luchador{
       this.haSidoSuperSaiyan = true;
 
       console.log(`¡${this.nombre} Se ha convertido en Super Saiyan!`);
-      console.log(`Ahora sus atributos son:\n\t-Ataque: ${this.ataque}\n\t-Velocidad: ${this.velocidad}
-        \n\t-Defensa: ${this.defensa}.`);
+      console.log(`Ahora sus atributos son:\n\t-Ataque: ${this.ataque.toFixed(0)}\n\t-Velocidad: ${this.velocidad.toFixed(0)}
+        \n\t-Defensa: ${this.defensa.toFixed(0)}.`);
 
     }
 
@@ -43,8 +43,8 @@ class Saiyan extends Luchador{
       this.esSuperSaiyan = false;
 
       console.log(`${this.nombre} ya no es Super Saiyan`);
-      console.log(`Sus atributos vuelven a la normalidad:\n\t-Ataque: ${this.ataque}\n\t-Velocidad: ${this.velocidad}
-        \n\t-Defensa: ${this.defensa}.`);
+      console.log(`Sus atributos vuelven a la normalidad:\n\t-Ataque: ${this.ataque.toFixed(0)}\n\t-Velocidad: ${this.velocidad.toFixed(0)}
+        \n\t-Defensa: ${this.defensa.toFixed(0)}.`);
     }
 
   }
