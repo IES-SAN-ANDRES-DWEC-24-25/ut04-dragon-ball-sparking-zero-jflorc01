@@ -60,7 +60,7 @@ class Torneo {
   iniciar() {
     // Comprobamos que el número de luchadores sea una potencia de 2
     if (!esPotenciaDeDos(this.luchadores.length)) {
-      throw new Error("El número de luchadores debe ser una potencia de dos para realizar el torneo");
+      throw new Error("El número de luchadores debe ser una potencia de 2.");
     }
 
     let participantes = [...this.luchadores]; // Crear una copia de luchadores
